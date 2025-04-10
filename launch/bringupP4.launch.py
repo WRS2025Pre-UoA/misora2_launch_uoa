@@ -7,7 +7,7 @@ def generate_launch_description():
         name="misora_uoa_part", 
         package="rclcpp_components",
         executable="component_container_mt",#マルチスレッドの場合component_container_mt,シングルはcomponent_container
-        namespace="",
+        namespace="P4",
         composable_node_descriptions=[
             ComposableNode(
                 package="misora2_distribute_image",
@@ -20,6 +20,12 @@ def generate_launch_description():
                 package="misora2_qr",
                 plugin="component_qr::DetectQR",
                 name="qr",
+                extra_arguments=[{"use_intra_process_comms": True}],
+            ),
+            ComposableNode(
+                package="misora2_pressure",
+                plugin="component_pressure::PressureMeasurement",
+                name="pressure",
                 extra_arguments=[{"use_intra_process_comms": True}],
             )
         ],

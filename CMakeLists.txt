@@ -10,6 +10,9 @@ find_package(ament_cmake REQUIRED)
 
 find_package(misora2_distribute_image)
 find_package(misora2_qr)
+find_package(misora2_pressure)
+find_package(misora2_cracks)
+find_package(misora2_metal_loss)
 
 install(
   DIRECTORY launch

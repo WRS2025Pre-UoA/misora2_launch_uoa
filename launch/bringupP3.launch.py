@@ -7,7 +7,7 @@ def generate_launch_description():
         name="misora_uoa_part", 
         package="rclcpp_components",
         executable="component_container_mt",#マルチスレッドの場合component_container_mt,シングルはcomponent_container
-        namespace="",
+        namespace="P3",
         composable_node_descriptions=[
             ComposableNode(
                 package="misora2_distribute_image",
@@ -17,9 +17,15 @@ def generate_launch_description():
                 parameters=[{"mode": "P3"}]
             ),
             ComposableNode(
-                package="misora2_qr",
-                plugin="component_qr::DetectQR",
-                name="qr",
+                package="misora2_cracks",
+                plugin="component_cracks::EvaluateCracks",
+                name="cracks",
+                extra_arguments=[{"use_intra_process_comms": True}],
+            ),
+            ComposableNode(
+                package="misora2_metal_loss",
+                plugin="component_metal_loss::EvaluateMetalLoss",
+                name="metal_loss",
                 extra_arguments=[{"use_intra_process_comms": True}],
             )
         ],
