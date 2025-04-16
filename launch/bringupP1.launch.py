@@ -14,7 +14,8 @@ def generate_launch_description():
                 plugin="component_distribute_image::DistributeImage",
                 name="distribute_image",
                 extra_arguments=[{"use_intra_process_comms": True}],
-                parameters=[{"mode": "P1"}]
+                parameters=[{"mode": "P1"}],
+                remappings=[("raw_image" , "/arm_camera/realsense2_camera_node/color/image_raw")]
             ),
             ComposableNode(
                 package="misora2_qr",
