@@ -20,6 +20,12 @@ def generate_launch_description():
                 remappings=[("raw_image" , "image_raw")]
             ),
             ComposableNode(
+                package="misora2_qr",
+                plugin="component_qr::DetectQR",
+                name="qr",
+                extra_arguments=[{"use_intra_process_comms": True}],
+            ),
+            ComposableNode(
                 package="misora2_cracks",
                 plugin="component_cracks::EvaluateCracks",
                 name="cracks",
