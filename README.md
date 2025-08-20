@@ -14,5 +14,5 @@ git clone git@github.com:WRS2025Pre-UoA/misora2_launch_uoa.git
 cd [ワークスペース]
 colcon build
 source install/setup.bash
-ros2 launch misora2_launch_uoa bringupP<1~4,6>.launch.py
+ros2 launch misora2_launch_uoa bringupP<1~6>.launch.py # 1~6は各ミッション番号
 ~~~
