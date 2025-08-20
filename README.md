@@ -6,7 +6,7 @@
     - misora2_qr/qr_node：QRの読み取りノード
     - misora2_cracks/cracks_node：テストピース(クラック)の検査ノード
     - misora2_metal_loss/metal_loss_node：テストピース(減肉)の検査ノード
- - ミッションごとにファイルを分けている bringupP<<font color="red">ミッション番号1~4,6</font>>.launch.py
+ - ミッションごとにファイルを分けている bringupP<<font color="red">ミッション番号1~6</font>>.launch.py
  
 ## 実行コード
 ~~~bash!
