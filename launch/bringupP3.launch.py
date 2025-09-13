@@ -15,9 +15,7 @@ def generate_launch_description():
                 name="distribute_image",
                 extra_arguments=[{"use_intra_process_comms": True}],
                 parameters=[{"mode": "P3"}, {"check_duration_sec": 2.0}, {"timer_interval_ms": 200}], #画像を何millisec間隔で流すか、また何s間流すか],
-                remappings=[("raw_image" , "/arm_camera/realsense2_camera_node/color/image_raw")]
-                # remappings=[("raw_image" , "/camera/camera/color/image_raw")]#テスト用
-                # remappings=[("raw_image" , "image_raw")]
+                remappings=[("raw_image" , "/arm_color_thermal_camera/selected_image_raw/compressed")]
             ),
             ComposableNode(
                 package="misora2_qr",
@@ -31,30 +29,10 @@ def generate_launch_description():
                 name="cracks",
                 extra_arguments=[{"use_intra_process_comms": True}],
             ),
-            ComposableNode(
-                package="misora2_metal_loss",
-                plugin="component_metal_loss::EvaluateMetalLoss",
-                name="metal_loss",
-                extra_arguments=[{"use_intra_process_comms": True}],
-            )
         ],
         output="screen",
     )
-  
-    
-    # load_composable_nodes = LoadComposableNodes(
-    #     target_container="my_container",
-    #     composable_node_descriptions=[
-    #         ComposableNode(
-    #             package="listener",
-    #             plugin="Listener",
-    #             name="listener",
-    #             extra_arguments=[{"use_intra_process_comms": True}],
-    #         ),
-    #     ],
-    # )
-    
+      
     return LaunchDescription([
         container, 
-        # load_composable_nodes
     ])
