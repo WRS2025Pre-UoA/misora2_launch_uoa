@@ -15,7 +15,8 @@ def generate_launch_description():
                 name="distribute_image",
                 extra_arguments=[{"use_intra_process_comms": True}],
                 parameters=[{"mode": "P2"}, {"check_duration_sec": 1.0}, {"timer_interval_ms": 100}], #画像を何millisec間隔で流すか、また何s間流すか
-                remappings=[("raw_image" , "/arm_color_thermal_camera/selected_image_raw/compressed")]
+                remappings=[("raw_image" , "/arm_camera/realsense2_camera_node/color/image_raw")]
+
             ),
             ComposableNode(
                 package="misora2_qr",
